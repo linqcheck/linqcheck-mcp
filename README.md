@@ -8,6 +8,22 @@ It analyzes product pages, identifies missing or conflicting information, helps 
 
 https://linqcheck.com
 
+## MCP endpoint
+
+The main LinqCheck MCP endpoint is:
+
+https://linqcheck.com/mcp
+
+Tool discovery requires authentication.
+
+## Authentication and privacy
+
+OAuth sign-in is required to use LinqCheck MCP tools.
+
+All tools operate only on the signed-in user’s own data. LinqCheck does not expose one user’s analyses or content to another user.
+
+Connecting an AI assistant to LinqCheck may allow that assistant to access the user’s analyses and, where applicable, consume credits.
+
 ## What LinqCheck does
 
 LinqCheck helps merchants:
@@ -18,30 +34,68 @@ LinqCheck helps merchants:
 - Review category-specific product completeness
 - Assess technical and AI commerce readiness
 - Complete missing product information
-- Generate content for supported commerce channels
+- Generate content for currently supported commerce channels
 - Export saved content for further review and implementation
 
 ## Product workflow
 
-Analyze → Detect gaps and conflicts → Verify facts → Build Product Truth → Generate content → Approve → Apply → Reanalyze
+Analyze → Detect gaps and conflicts → Verify facts → Build Product Truth → Generate content → Review and approve → Export or implement manually
+
+Automated write-back, publishing and store synchronization are not currently available.
 
 ## MCP tools
-
-LinqCheck provides AI-accessible tools for product analysis and content workflows.
 
 ### `analyze_product_url`
 
 Analyzes a product URL and returns a structured product analysis.
 
+- Required parameter: `url`
+- Credit usage: 1 credit
+- Creates a new analysis record
+
 ### `get_analysis_result`
 
-Retrieves the result of an existing LinqCheck analysis.
+Retrieves an existing LinqCheck analysis.
+
+- Required parameter: `analysisId`
+- Credit usage: 0 credits
+- Read-only
 
 ### `generate_product_content`
 
 Generates channel-ready product content based on available product information and user-provided corrections.
 
-Tool availability and authentication requirements may vary by deployment and account status.
+- Required parameters:
+  - `analysisId`
+  - `channel`
+  - `contentTypes`
+- Credit usage: 1 credit
+- Creates a content generation record
+
+Responses are returned as JSON text with structured content where applicable.
+
+## Supported content destinations
+
+New content generation is currently available for:
+
+- Own ecommerce website
+- Shopify
+
+Amazon, Trendyol, Hepsiburada and other marketplace destinations are not currently available for new content generation.
+
+## Shopify status
+
+Shopify is currently used as a read-only product-data source for importing and analyzing product information.
+
+LinqCheck does not currently write, publish or synchronize changes back to Shopify stores.
+
+## Credits
+
+- Product analysis: 1 credit
+- Content generation: 1 credit
+- Reading an existing analysis: free
+
+Credit usage is subject to the user’s account and current product policies.
 
 ## What LinqCheck is not
 
