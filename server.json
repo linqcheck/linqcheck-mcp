@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.linqcheck/linqcheck-mcp",
+  "title": "LinqCheck",
+  "description": "Product Truth and AI Commerce Readiness tools for ecommerce product data. OAuth sign-in required; analysis and content generation consume LinqCheck credits.",
+  "version": "0.2.0",
+  "websiteUrl": "https://linqcheck.com",
+  "repository": {
+    "url": "https://github.com/linqcheck/linqcheck-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://linqcheck.com/mcp"
+    }
+  ]
+}
